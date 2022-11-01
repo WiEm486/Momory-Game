@@ -1,0 +1,138 @@
+ *{
+    box-sizing: border-box;
+ }
+ body{
+    font-family: Arial, Helvetica, sans-serif;
+ }
+ .control-buttons
+ {
+   position: fixed;
+   left: 0;
+   top: 0;
+   width: 100%;
+   height: 100%;
+   z-index: 2;
+   background-color:#f38b21f5 ;
+ }
+ .control-buttons span{
+   position:absolute ;
+   left: 50%;
+   top: 50%;
+   transform: translate(-50%,-50%);
+   background-color:#F44336 ;
+   color: white;
+   padding: 15px 25px;
+   font-size: 30px;
+   text-align: center;
+   border-radius:6px ;
+   cursor:pointer;
+
+ }
+ .info{
+   position:absolute ;
+   left: 50%;
+   top: 70%;
+   transform: translate(-50%,-50%);
+
+   color: white;
+   padding: 15px 25px;
+   font-size: 30px;
+   text-align: center;
+   border-radius:6px ;
+   cursor:pointer;
+ }
+ .info input
+ {
+   height: 3em;
+   width: 30em;
+   border-radius: 10px;
+   border: none;
+   font-size: 15px;
+   margin-top: 10px;
+ }
+ .info-container{
+    width: 1080px;
+    margin: 20px auto 0;
+    background-color: #F6F6F6;
+    padding: 20px;
+    font-size: 24px;
+    overflow: hidden;
+    border: 2px solid #21f348;
+    border-radius: 10px;
+ }
+ .info-container .name{
+    float: left;
+    width: 50%;
+ }
+ .info-container .tries{
+    float: right;
+    width: 50%;
+    text-align: right;
+ }
+ .memory-game-blocks{
+display: flex;
+width:1100px;
+flex-wrap: wrap;
+margin:20px auto ;
+}
+.memory-game-blocks.no-clicking
+{
+   pointer-events: none;
+}
+.memory-game-blocks .game-block
+{
+    height: 150px;
+   transition: transform .5s;
+   transform-style: preserve-3d;
+   /* il faut les enfants en postion 3D */
+   cursor: pointer;
+   position: relative;
+   width: 160px;
+   flex: 1 0 200px;
+   margin: 0  10px 8px ;
+   
+}
+.memory-game-blocks .game-block .front
+{
+background-color: #e2b38b4a;
+line-height:200px ;
+margin-left: 40px;
+border-radius: 10px;
+}
+.memory-game-blocks .game-block .front::before{
+    content: "?";
+    color: rgb(214, 85, 34);
+    font-size: 90px;
+    position:absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -25%;
+    font-weight: bold;
+}
+.memory-game-blocks .game-block .back
+{
+    background-color:#f5dbb4b3 ;
+    transform: rotateY(180deg);
+    /* pour que la fleur soit d'arriere l'interrogation */
+}
+
+.memory-game-blocks  .game-block .back img{
+
+width: 140px;
+height: 140px;
+}
+.memory-game-blocks  .game-block .face{
+    position: absolute;
+    width: 80%;
+    height: 100%;
+    text-align: center;
+    backface-visibility: hidden;
+    border:5px solid rgb(225, 85, 29) ;
+}
+.memory-game-blocks  .game-block.is-flipped,.memory-game-blocks  .game-block.has-match
+{
+   -webkit-transform:rotateY(180deg); ;
+   -moz-transform:rotateY(180deg);
+   transform: rotateY(180deg);
+   pointer-events: none;
+}
